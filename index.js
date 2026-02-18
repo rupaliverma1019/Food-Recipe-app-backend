@@ -3,6 +3,7 @@ const app = express()
 const dotenv = require('dotenv').config();
 const cors = require("cors");
 const userRoutes = require("./routes/userrouter");
+app.use("/images", express.static("public/images"));
 
 app.use(cors());
 
