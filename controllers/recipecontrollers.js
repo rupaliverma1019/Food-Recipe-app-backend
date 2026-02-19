@@ -38,6 +38,7 @@ const addrecipe = async (req, res) => {
   try {
     console.log("FILE:", req.file);
 
+
     const { title, ingrediants, instructions, time } = req.body;
 
     if (!title || !ingrediants || !instructions) {
@@ -49,8 +50,10 @@ const addrecipe = async (req, res) => {
       ingrediants,
       instructions,
       time,
-      image: req.file ? req.file.filename : null
+      image: req.file ? req.file.filename : null,
+      createdBy : req.user.id
     });
+
 
     res.status(201).json(newRecipe);
 
